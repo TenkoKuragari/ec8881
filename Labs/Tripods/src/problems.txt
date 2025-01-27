@@ -1,0 +1,16 @@
+Java Problems
+
+For each of the numbered problems:
+- State whether the problem occurs at compile-time or run-time
+- Briefly describe what the problem is in plain English
+
+1. compile-time, the name of the class is different from the name of the file
+2. compile-time, you expect i to be an int but scanner returns a string
+3. run-time, you can't divide by 0
+4. compile-time, you are missing a type in the argument for the min method
+5. compile-time, expects an int return, but there's a path that doesn't return an int
+6. run-time, there is nothing in the list
+7. compile-time, you set a string as ch rather than a char
+8. compile-time, j has no value
+9. compile-time, the set value is a double and not a float
+10. run-time, the substring method end index goes outside the bounds of the set string
