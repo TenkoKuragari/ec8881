@@ -33,4 +33,9 @@ public class Duck implements Animal, Swimmer, Flyer {
         return;
     }
 
+    public int getHapppiness() {
+        return happiness;
+    }
+
+
 }
