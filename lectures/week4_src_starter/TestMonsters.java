@@ -9,26 +9,24 @@ package inheritance;
 public class TestMonsters {
 
     public static void main(String[] args) {
-        Monster mike = new Monster("Mike", 20);
-        Monster sully = new Monster("Sully", 50);
         Phoenix fawkes = new Phoenix("Fawkes", 80);
-        System.out.println(mike);
-        System.out.println(sully);
-        System.out.println(fawkes);
+        Ogre shrek = new Ogre("Shrek", 90, "green");
 
-        Monster m = fawkes;
-        m.takeDamage(15);
-        fawkes.fly(30);
+        while (fawkes.getHitPoints() > 0 && shrek.getHitPoints() > 0) {
+            fawkes.fly(15);
+            fawkes.attack(shrek);
+            if (shrek.getHitPoints() > 0) {
+                shrek.attack(fawkes);
+            }
+            System.out.println(fawkes);
+            System.out.println(shrek);
+        }
 
-
-        mike.takeDamage(10);
-        sully.takeDamage(25);
-
-        System.out.println(mike);
-        System.out.println(sully);
-
-        mike.takeDamage(15);
-        System.out.println(mike);
+        if (fawkes.getHitPoints() > 0) {
+            System.out.println(fawkes.getName() + " is the winner");
+        } else {
+            System.out.println(shrek.getName() + " is the winner");
+        }
     }
 }
 

@@ -17,6 +17,12 @@ public class Phoenix extends Monster implements Flyer {
         this.distance = 0;
     }
 
+    @Override
+    public void attack(Monster other) {
+        System.out.println(getName() + " claws " + other.getName() + " kaw kaw");
+        other.takeDamage(15);
+    }
+
     public int getDistance() {
         return this.distance;
     }

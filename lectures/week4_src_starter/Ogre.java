@@ -5,11 +5,12 @@ package inheritance;
  *
  * @author CS RIT
  */
-public class Ogre {
+public class Ogre extends Monster {
 
     private final String color;
 
     public Ogre(String name, int hitPoints, String color) {
+        super(name, hitPoints);
         this.color = color;
     }
 
@@ -18,8 +19,14 @@ public class Ogre {
     }
 
     @Override
+    public void attack(Monster other) {
+        System.out.println(getName() + " club " + other.getName() + " hue, hue");
+        other.takeDamage(30);
+    }
+
+    @Override
     public String toString() {
-        return "Ogre{" +
+        return super.toString() + ", Ogre{" +
                 "color='" + color + '\'' +
                 '}';
     }

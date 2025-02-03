@@ -5,7 +5,7 @@ package inheritance;
  *
  * @author CS RIT
  */
-public class Monster {
+public abstract class Monster {
 
     private String name;
     private int hitPoints;
@@ -29,6 +29,8 @@ public class Monster {
         return hitPoints;
     }
 
+    public abstract void attack(Monster other);
+
     public void updateHitPoints(int amount) {
         this.hitPoints += amount;
         if (hitPoints < 0) {
@@ -38,12 +40,13 @@ public class Monster {
 
     public void takeDamage(int amount) {
         System.out.println(getName() + " takes " + amount + " damage");
-        this.hitPoints -= amount;
-        if (hitPoints == 0) {
+        updateHitPoints(amount);
+        if (hitPoints <= 0) {
             System.out.println(this.name + " has fainted!");
             this.hitPoints = 0;
         }
     }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Monster)) return false;
