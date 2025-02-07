@@ -3,7 +3,7 @@ public class Duck extends Animal implements Flyer, Swimmer{
     public final static double FLY_SPEED_MS = 22.352;
     public final static double RUN_SPEED_MS = 13.94765;
     public final static double SWIM_SPEED_MS = 26.8224;
-    private double wingSpan;
+    private final double wingSpan;
     private int happiness;
 
     public Duck(double wingSpan, String name) {
@@ -12,23 +12,21 @@ public class Duck extends Animal implements Flyer, Swimmer{
     }
 
     public void pet(int seconds) {
-        //TODO
+        this.happiness += seconds * wingSpan;
     }
 
     public int getHappiness() {
-        //TODO
-        return 0;
+        return this.happiness;
     }
 
     @Override
     public void run(int seconds) {
-        //TODO
+        travel(seconds * RUN_SPEED_MS + wingSpan);
     }
 
     @Override
     public String speak() {
-        //TODO
-        return "";
+        return this.toString() + " says \"quack!, quack\"";
     }
 
     @Override
