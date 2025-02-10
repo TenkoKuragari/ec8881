@@ -20,7 +20,8 @@ public class PokemonStadium {
         this.magikarp = new Pokemon("Magikarp", 129, Pokemon.Type.WATER);
         this.squirtle = new Pokemon("Squirtle", 7, Pokemon.Type.WATER);
 
-        // TODO
+        pokemonList.addAll(Arrays.asList((charmander, starly, hoothoot, diglett, magikarp));
+
     }
 
     public static void main(String[] args) {
@@ -30,7 +31,11 @@ public class PokemonStadium {
 
     private void findPokemon() {
         System.out.println("Finding a pokemon .....");
-        //TODO
+        System.out.println("Is hoothoot here? " + pokemonList.contains(this.hoothoot));
+
+        System.out.println("Is charmander here? " + pokemonList.contains(
+                new Pokemon("Charmander", 4, Pokemon.Type.FIRE)
+        ));
     }
 
     private void orderedStrings() {

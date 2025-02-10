@@ -27,6 +27,14 @@ public class Pokemon {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o instanceof Pokemon) {
+            Pokemon other = (Pokemon) o;
+            return other.name.equals(this.name)
+        }
+    }
+
+    @Override
     public String toString() {
         return "Pokemon{" +
                 "name='" + name + '\'' +
