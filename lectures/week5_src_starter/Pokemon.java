@@ -30,8 +30,9 @@ public class Pokemon {
     public boolean equals(Object o) {
         if (o instanceof Pokemon) {
             Pokemon other = (Pokemon) o;
-            return other.name.equals(this.name)
+            return other.name.equals(this.name);
         }
+        return false;
     }
 
     @Override

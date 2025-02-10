@@ -20,7 +20,7 @@ public class PokemonStadium {
         this.magikarp = new Pokemon("Magikarp", 129, Pokemon.Type.WATER);
         this.squirtle = new Pokemon("Squirtle", 7, Pokemon.Type.WATER);
 
-        pokemonList.addAll(Arrays.asList((charmander, starly, hoothoot, diglett, magikarp));
+        pokemonList.addAll(Arrays.asList(charmander, starly, hoothoot, diglett, magikarp));
 
     }
 
@@ -53,7 +53,10 @@ public class PokemonStadium {
 
     private void orderPokemons() {
         System.out.println("Printing the pokemons in order");
-        // TODO
+        Set<Pokemon> pokemonSet = new TreeSet<>(this.pokemonList);
+        for (Pokemon p : pokemonSet) {
+            System.out.println(p);
+        }
     }
 
     private void orderSpecialPokemons() {
