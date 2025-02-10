@@ -1,6 +1,11 @@
 package jcf;
 
-public class Pokemon {
+public class Pokemon implements Comparable<Pokemon> {
+
+    @Override
+    public int compareTo(Pokemon o) {
+        return this.pokedex - o.pokedex;
+    }
 
     public enum Type {GROUND, WATER, FIRE, FLYING}
 
