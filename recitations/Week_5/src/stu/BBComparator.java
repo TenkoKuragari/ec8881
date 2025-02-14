@@ -28,7 +28,6 @@ public class BBComparator implements Comparator<BeanieBaby> {
      */
     @Override
     public int compare(BeanieBaby first, BeanieBaby second) {
-        // TODO
-        return 0;
+        int x =
     }
 }
