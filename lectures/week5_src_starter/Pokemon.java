@@ -4,7 +4,7 @@ public class Pokemon implements Comparable<Pokemon> {
 
     @Override
     public int compareTo(Pokemon o) {
-        return this.pokedex - o.pokedex;
+        return o.pokedex - this.pokedex;
     }
 
     public enum Type {GROUND, WATER, FIRE, FLYING}
@@ -32,10 +32,16 @@ public class Pokemon implements Comparable<Pokemon> {
     }
 
     @Override
+    public int hashCode() {
+        return this.pokedex + this.type.hashCode() + this.name.hashCode();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Pokemon) {
             Pokemon other = (Pokemon) o;
-            return other.name.equals(this.name);
+            return other.name.equals(this.name) &&
+                    other.pokedex == this.pokedex && other.type.equals(this.type);
         }
         return false;
     }

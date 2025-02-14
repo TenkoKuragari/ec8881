@@ -26,7 +26,10 @@ public class PokemonStadium {
 
     public static void main(String[] args) {
         PokemonStadium stadium = new PokemonStadium();
-        //TODO
+        stadium.findPokemon();
+        stadium.orderPokemons();
+        stadium.orderSpecialPokemons();
+        stadium.findPokemonFast();
     }
 
     private void findPokemon() {
@@ -61,11 +64,27 @@ public class PokemonStadium {
 
     private void orderSpecialPokemons() {
         System.out.println("Printing the pokemons in a special order");
-        // TODO
+        Set<Pokemon> pokemonSet = new TreeSet<>(new PokemonComparator());
+        pokemonSet.addAll(pokemonList);
+        for (Pokemon p : pokemonSet) {
+            System.out.println(p);
+        }
     }
 
     private void findPokemonFast() {
         System.out.println("Finding pokemon in O(1) time");
-        // TODO
+        Map<Pokemon, Double> pokemonDoubleMap = new HashMap<>();
+        pokemonDoubleMap.put(this.charmander, 19.8);
+        pokemonDoubleMap.put(this.diglett, 1.8);
+        pokemonDoubleMap.put(this.hoothoot, 16.8);
+        pokemonDoubleMap.put(this.magikarp, 22.5);
+        pokemonDoubleMap.put(this.squirtle, 10.2);
+        pokemonDoubleMap.put(this.starly, 20.5);
+
+        pokemonDoubleMap.put(new Pokemon("Hoothoot", 163, Pokemon.Type.FLYING), 25.0);
+
+        for (Pokemon p : pokemonDoubleMap.keySet()) {
+            System.out.println(p.getName() + "--" + pokemonDoubleMap.get(p));
+        }
     }
 }
