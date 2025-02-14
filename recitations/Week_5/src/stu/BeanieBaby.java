@@ -82,7 +82,12 @@ public class BeanieBaby implements Comparable<BeanieBaby> {
      */
     @Override
     public boolean equals(Object other) {
-        // TODO
+        if (other instanceof BeanieBaby) {
+            BeanieBaby bB = (BeanieBaby) other;
+            return this.name.equals(bB.name) &&
+                    this.year == bB.year &&
+                    this.type.equals(bB.type);
+        }
         return false;
     }
 
@@ -97,8 +102,11 @@ public class BeanieBaby implements Comparable<BeanieBaby> {
      */
     @Override
     public int compareTo(BeanieBaby other) {
-        // TODO
-        return 0;
+        int x = this.year - other.year;
+        if (x == 0) {
+            x = this.name.hashCode() - other.name.hashCode();
+        }
+        return x;
     }
 
     /**
@@ -109,7 +117,6 @@ public class BeanieBaby implements Comparable<BeanieBaby> {
      */
     @Override
     public int hashCode() {
-        // TODO - change the next line to do the right thing
-        return (int) (Math.random() * 10000000);
+        return this.name.hashCode() + this.year + this.type.hashCode();
     }
 }
