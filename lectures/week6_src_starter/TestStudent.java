@@ -3,6 +3,7 @@ package lambda;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class TestStudent {
 
@@ -18,7 +19,7 @@ public class TestStudent {
                 }
             });
 
-        Set<Student> studentSet = new TreeSet<>( (Student o1, Student o2) -> {
+        Set<Student> studentSet = new TreeSet<>( (o1, o2) -> {
                 int result = Double.compare(o2.getGpa(), o1.getGpa());
                 if (result == 0) {
                     return o1.getId() - o2.getId();
@@ -43,22 +44,38 @@ public class TestStudent {
 
         System.out.println("Printing using forEach");
         // forEach and lambda expression
-        //TODO
+        studentSet.forEach( (stu) -> {
+            System.out.println(stu);
+        });
 
         System.out.println("Printing using forEach with no curly braces");
         // forEach and lambda expression, without curly braces
-        //TODO 
+        studentSet.forEach( (stu) -> {
+            System.out.println(stu);
+        });
 
         System.out.println("Printing using forEach and method reference");
         //forEach and method reference
-        // TODO
+        studentSet.forEach(System.out::println);
 
         // printing students with a gpa higher than 3.5
         System.out.println("Filtering students using classic approach");
-        //TODO
+        for (Student stu : studentSet) {
+            if (stu.getGpa() > 3.5) {
+                System.out.println(stu.getGpa());
+            }
+        }
 
         // printing students with a gpa higher than 3.5 using Stream API
         System.out.println("Filtering students using Stream API");
-        //TODO
+        studentSet.stream()
+                .filter((stu) -> stu.getGpa() >3.5)
+                .filter(stu -> stu.getMajor().equals("CSEC"))
+                .forEach(System.out::println);
+
+        studentSet.stream()
+                .filter((stu) -> stu.getGpa() >3.5)
+                .filter(stu -> stu.getMajor().equals("CSEC"))
+                .collect(Collectors.toList());
     }
 }
