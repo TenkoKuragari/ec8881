@@ -7,7 +7,26 @@ import java.util.TreeSet;
 public class TestStudent {
 
     public static void main(String[] args) {
-        Set<Student> studentSet = new TreeSet<>();
+        Set<Student> studentSetOld = new TreeSet<>(new StudentComparator() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                int result = Double.compare(o2.getGpa(), o1.getGpa());
+                if (result == 0) {
+                    return o1.getId() - o2.getId();
+                }
+                    return result;
+                }
+            });
+
+        Set<Student> studentSet = new TreeSet<>( (Student o1, Student o2) -> {
+                int result = Double.compare(o2.getGpa(), o1.getGpa());
+                if (result == 0) {
+                    return o1.getId() - o2.getId();
+                }
+                return result;
+            }
+        );
+
         studentSet.add(new Student("Steven", 1, 3.65, "CMPE"));
         studentSet.add(new Student("Sara", 2, 3.4, "CSEC"));
         studentSet.add(new Student("Lee", 3, 3.8, "SWEN"));
